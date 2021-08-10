@@ -1,5 +1,5 @@
 diff a/src/views/Home.vue b/src/views/Home.vue	(rejected hunks)
-@@ -8,6 +7,0 @@
+@@ -12,6 +11,0 @@ import HelloWorld from '@/components/HelloWorld.vue';
 -
 -
 -
