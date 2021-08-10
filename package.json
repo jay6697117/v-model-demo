@@ -33,7 +33,7 @@
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
-    "commit-msg": "yarn lint",
+    "commit-msg": "yarn lint && node scripts/verify-commit-msg.js",
     "pre-commit": "lint-staged"
   },
   "lint-staged": {
