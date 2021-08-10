@@ -6,8 +6,8 @@
     "serve": "yarn lint && vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "yarn prettier && yarn eslint",
-    "eslint": "eslint --fix --ext .js,.jsx,.vue ./",
-    "prettier": "prettier --write './**/*.{css,less,json,js,jsx,vue}'"
+    "eslint": "eslint --fix --ext .js,.ts,.jsx,.tsx,.vue ./",
+    "prettier": "prettier --write './**/*.{css,less,json,js,ts,jsx,tsx,vue}'"
   },
   "dependencies": {
     "core-js": "^3.6.5",
