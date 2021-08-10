@@ -5,8 +5,7 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint",
-    "lint:fix": "yarn prettier && yarn eslint",
+    "lint": "yarn prettier && yarn eslint",
     "eslint": "eslint --fix --ext .js,.jsx,.vue ./",
     "prettier": "prettier --write './**/*.{css,less,json,js,jsx,vue}'"
   },
@@ -34,7 +33,8 @@
     "vue-template-compiler": "^2.6.11"
   },
   "gitHooks": {
-    "pre-commit": "lint-staged && yarn lint:fix"
+    "commit-msg": "yarn lint",
+    "pre-commit": "lint-staged"
   },
   "lint-staged": {
     "*.{js,jsx,vue}": [
