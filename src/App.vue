@@ -8,7 +8,6 @@
     <router-view />
   </div>
 </template>
-111
 
 <style lang="less">
 #app {
