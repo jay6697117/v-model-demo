@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <h1>app 2</h1>
+      <base-checkbox
+        :class="`ck-${index}`"
+        v-for="(item,index) in lovingVue"
+        :key="item.id"
+        :checked="item.ck"
+        @change="baseChange(item, $event)"
+      ></base-checkbox>
+      <hr />
+      <button class="btn" v-for="item in lovingVue" :key="`btn-${item.id}`">{{ item.ck }}</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        components: {
+          'base-checkbox': {
+            template: `
+              <div>
+                <label>
+                  运动
+                  <input
+                  type="checkbox"
+                  :checked="checked"
+                  @change="handleChange($event)"
+                  >
+                </label>
+              </div>
+            `,
+            model: {
+              prop: 'checked',
+              event: 'change'
+            },
+            props: {
+              checked: {
+                type: Boolean,
+                required: true
+              }
+            },
+            methods: {
+              handleChange(e) {
+                console.log('e :>> ', e);
+                this.$emit('change', e.target.checked);
+              }
+            },
+            mounted() {
+              console.log('遍历 base-checkbox checked :>> ', this.checked);
+            }
+          }
+        },
+        data: {
+          lovingVue: [
+            { ck: true, id: '1' },
+            { ck: false, id: '2' },
+            { ck: false, id: '3' }
+          ]
+        },
+
+        methods: {
+          baseChange(item, val) {
+            console.log('baseChange item :>> ', item);
+            console.log('baseChange val :>> ', val);
+            item.ck = val;
+          }
+        },
+        watch: {
+          lovingVue: {
+            handler(newVal) {
+              console.log('lovingVue newVal:>> ', newVal);
+            },
+            immediate: true,
+            deep: true
+          }
+        }
+      }).$mount('#app');
+    </script>
+  </body>
+</html>
